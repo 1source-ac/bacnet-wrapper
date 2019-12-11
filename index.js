@@ -1,6 +1,8 @@
 const bacnet = require("bacstack");
 const client = new bacnet({ apduTimeout: 6000 });
 
+const enums = require("./enums");
+
 const getObjectList = (host, type, instance) => {
   return new Promise((resolve, reject) => {
     client.readProperty(
