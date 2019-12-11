@@ -31,4 +31,4 @@ const getObjectName = (host, type, instance) => {
   });
 };
 
-module.exports = { getObjectList, getObjectName };
+module.exports = { getObjectList, getObjectName, enums };
