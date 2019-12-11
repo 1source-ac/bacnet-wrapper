@@ -10,8 +10,8 @@ const getObjectList = (host, type, instance) => {
       { type: type, instance: instance },
       enums.PropertyId.objectList,
       (err, value) => {
-        if (err) resolve({ result: "error", error: err });
-        else resolve({ result: "value-received", data: value.values });
+        if (err) resolve(err);
+        else resolve(value.values);
       }
     );
   });
