@@ -31,4 +31,26 @@ const getObjectName = (host, type, instance) => {
   });
 };
 
-module.exports = { getObjectList, getObjectName, enums };
+const subscribeCOV = (host, type, instance, cancel) => {
+  cancel = cancel || false;
+  return new Promise((resolve, reject) => {
+    client.subscribeCOV(
+      host,
+      { type: type, instance: instance },
+      7,
+      cancel,
+      false,
+      0,
+      (err, value) => {
+        if (err) reject(err);
+        else resolve(value);
+      }
+    );
+  });
+};
+
+const onCOV = cb => {
+  client.on("covNotifyUnconfirmed", cb);
+};
+
+module.exports = { getObjectList, getObjectName, subscribeCOV, onCOV, enums };
