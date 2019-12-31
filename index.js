@@ -1,5 +1,5 @@
 const bacnet = require("bacstack");
-const client = new bacnet({ apduTimeout: 15000 });
+const client = new bacnet({ apduTimeout: 5000 });
 
 const enums = require("./enums");
 
